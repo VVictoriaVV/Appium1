@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.Set;
