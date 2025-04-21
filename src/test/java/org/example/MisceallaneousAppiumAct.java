@@ -19,7 +19,7 @@ public class MisceallaneousAppiumAct extends BaseTest {
     public void testMiscellaneous() {
 
         Activity activity = new Activity("io.appium.android.apis", "io.appium.android.apis.preference.PreferenceDependencies}");
-        //  driver.startActivity(activity);
+          driver.startActivity(activity);
 
         ((JavascriptExecutor) driver).executeScript("mobile: startActivity", ImmutableMap.of(
                 "intent", " io.appium.android.apis/io.appium.android.apis.preference.PreferenceDependencies"));

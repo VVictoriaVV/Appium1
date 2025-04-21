@@ -40,7 +40,7 @@ public class eCommerce_tc_3 extends BaseTest {
 
 
         List<WebElement> prices = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice"));
-        prices.size();
+
 
 
         int priceProducts = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice")).size();
@@ -48,7 +48,7 @@ public class eCommerce_tc_3 extends BaseTest {
 
         for (int i = 0; i < priceProducts; i++) {
             String amountString = prices.get(i).getText();
-            Double price = Double.parseDouble(amountString.substring(1));
+            Double price = (Double) Double.parseDouble(amountString.substring(1));
             totalSum = totalSum + price;
         }
 

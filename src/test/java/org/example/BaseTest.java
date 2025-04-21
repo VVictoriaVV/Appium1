@@ -37,7 +37,7 @@ public class BaseTest {
 
     public void ConfigureAppium() throws MalformedURLException {
         service = new AppiumServiceBuilder()
-                .withAppiumJS(new File("C:\\Users\\79255\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
+                .withAppiumJS(new File("C:\\Users\\vikto\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
                 .withIPAddress("127.0.0.1").usingPort(4723).build();
         service.start();
 
@@ -61,9 +61,12 @@ public class BaseTest {
 
 
         UiAutomator2Options options = new UiAutomator2Options();
-      options.setDeviceName("Vika");
-//        // options.setApp("C:\\Users\\79255\\IdeaProjects\\Mobile\\src\\resources\\ApiDemos-debug.apk");
-        options.setApp("C:\\Users\\79255\\IdeaProjects\\Mobile\\src\\resources\\General-Store.apk");
+   //   options.setDeviceName("Vika");//emulator
+        options.setDeviceName("Android Device");//real device
+
+        options.setChromedriverExecutable("C:\\Users\\vikto\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        options.setApp("C:\\Users\\vikto\\IdeaProjects\\Mobile\\src\\resources\\ApiDemos-debug.apk");
+       // options.setApp("C:\\Users\\vikto\\IdeaProjects\\Appium1\\src\\resources\\General-Store.apk");
 
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
@@ -96,7 +99,7 @@ public class BaseTest {
     }
 
     public Double getFormattedAmount(String amount) {
-        Double price = Double.parseDouble(amount.substring(1));
+        Double price = (Double) Double.parseDouble(amount.substring(1));
         return price;
     }
 

@@ -38,14 +38,14 @@ public class eCommerce_tc_4_Hybrid extends BaseTest {
 
 
         List<WebElement> prices = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice"));
-        prices.size();
+       // prices.size();
 
 
         int priceProducts = driver.findElements(By.id("com.androidsample.generalstore:id/productPrice")).size();
         double totalSum = 0;
         for (int i = 0; i < priceProducts; i++) {
             String amountString = prices.get(i).getText();
-            Double price = Double.parseDouble(amountString.substring(1));
+            Double price = getFormattedAmount(amountString);
             totalSum = totalSum + price;
         }
 
@@ -72,8 +72,8 @@ public class eCommerce_tc_4_Hybrid extends BaseTest {
         //'124.0.6367'
         driver.context("WEBVIEW_com.androidsample.generalstore");
         Thread.sleep(3000);
-        driver.findElement(By.id("name")).sendKeys("Hello");
-        driver.findElement(By.id("name")).sendKeys(Keys.ENTER);
+        driver.findElement(By.name("q")).sendKeys("Hello");
+        driver.findElement(By.name("q")).sendKeys(Keys.ENTER);
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
         driver.context("NATIVE_APP");
 
